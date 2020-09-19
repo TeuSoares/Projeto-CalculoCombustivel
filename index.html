@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>Calculadora de Combustível</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Path to your custom app styles-->
+   
+  </head>
+  <body>
+        <!-- App root element -->
+        <div id="app">
+            <div class="view view-main">
+                <div data-name="home" class="page">
+                  
+                    <div class="navbar theme-dark">
+                      <div class="navbar-bg"></div>
+                      <div class="navbar-inner bg-color-black">
+                        <div class="title">Calculadora de Combustível<i class="f7-icons">drop_fill</i></div>
+                      </div>
+                    </div>
+                     <!-- Adicionando conteudo a página -->
+                     <div class="page-content">
+                        <div class="block">  
+                          <hr>
+                          <div class="display-flex justify-content-space-between">
+                            <div class="font">Preço Etanol:</div>
+                            <div class="font1">
+                              <input class="margin-left" id="etanol" data-mask="0.000" type="number" placeholder="R$0.000">
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="display-flex justify-content-space-between">
+                            <div class="font">Preço Gasolina:</div>
+                            <div class="font1">
+                              <input class="margin-left" id="gasolina" data-mask="0.000"  type="number" placeholder="R$0.000">
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="font">
+                            <h4>Abasteça hoje com: <span class="mensagem"></span></h4>
+                            <span class="porc small"></span>
+                          </div>
+                          <button class="col button button-large button-raised button-fill color-blue margin-top btn-calcular">CALCULAR</button>
+                          <br><br>
+                          <hr>
+                          <div class="display-flex justify-content-space-between">
+                            <div class="font">Dinheiro:</div>
+                            <div class="font1">
+                              <input class="margin-left" id="dinheiro" type="number" data-mask="000.00" data-mask-reverse="true" placeholder="R$0.00">
+                              <span class="input-clear-button"></span>
+                              <small class="men-dinheiro"></small>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="display-flex justify-content-space-between">
+                            <div class="font">Litros:</div>
+                            <div class="font1">
+                              <input class="margin-left" id="litros" type="number" placeholder="ML's">
+                              <span class="input-clear-button"></span>
+                              <small class="men-litros"></small>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="media f7-p">
+                            <label class="litros-visible">Por volta de <span id="lb_litros"></span> litros de <span class="result"></span></label>
+                            <label class="dinheiro-visible">Valor à pagar R$<span id="lb_dinheiro"></span></label>
+                          </div>
+                          <div class="padding-top padding-bottom font">
+                            <button class="col button button-large button-raised button-fill color-blue margin-top btn-novo">NOVO CALCULO</button>
+                          </div>
+                          <div class="consumo">
+                            <span class="item-label">Média de consumo do veículo!</span>
+                            <div class="list no">
+                                <ul>
+                                  <li class="item-content item-input ">
+                                    <div class="item-input">
+                                      Cidade: <input type="number" id="cidade" placeholder="KM">
+                                    </div>
+                                    <div class="item-input">
+                                      Pista: <input type="number" id="pista" placeholder="KM">
+                                    </div>
+                                  </li>
+                                </ul>
+                                <span class="m-cidade"></span> | <span class="m-pista"></span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/framework7.bundle.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
+ </body>
+ </html>
