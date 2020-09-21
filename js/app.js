@@ -44,6 +44,17 @@ var app = new Framework7({
   }
 
   function historico(){
+
+    now = new Date;
+    dias = new Array("Domingo","Segunda","terça","Quarta","Quinta","Sexta","Sábado");
+    meses = new Array("Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez");
+
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day);
+
+    $("#dia,#dataTarefa,#dataPtroca").val(today);
+
     $('#btn-oleo').click(function(){
       var dataTroca = $("#dataTroca").val();
       var dataPtroca = $("#dataPtroca").val();
@@ -84,7 +95,7 @@ var app = new Framework7({
 
       if(dia < today){
         app.dialog.alert("A data não pode ser retroativa","AVISO");
-        $("#dia").val(today);
+        $("#dia").val();
         return false;
       }
 
