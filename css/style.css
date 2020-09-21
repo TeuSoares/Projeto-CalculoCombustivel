@@ -32,4 +32,16 @@
     border-radius: 5px;
     margin: 10px 0;
 }
- 
+.inline-label .item-floating-label, .inline-label .item-label, .inline-labels .item-floating-label, .inline-labels .item-label {
+    width: 25%!important;
+}
+.list{
+    margin: 0!important;
+} 
+.data-table .data-table-footer{
+    justify-content: flex-start;
+}
+
+.md .navbar-inner{
+    justify-content: center;
+}

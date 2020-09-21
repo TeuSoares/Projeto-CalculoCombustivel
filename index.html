@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
-    <title>Calculadora de Combustível</title>
+    <title>CarLife</title>
     <!-- Path to Framework7 Library Bundle CSS -->
     <link rel="stylesheet" href="css/framework7.bundle.min.css">
     <link rel="stylesheet" href="css/framework7-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Path to your custom app styles-->
    
   </head>
@@ -18,81 +19,202 @@
         <div id="app">
             <div class="view view-main">
                 <div data-name="home" class="page">
-                  
-                    <div class="navbar theme-dark">
-                      <div class="navbar-bg"></div>
-                      <div class="navbar-inner bg-color-black">
-                        <div class="title">Calculadora de Combustível<i class="f7-icons">drop_fill</i></div>
+
+                  <div class="navbar theme-dark">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner bg-color-black">
+                      <div class="title"><i class="f7-icons">car_fill</i>&nbsp; Gerencie seu automovél</div>
+                    </div>
+                  </div>
+
+                  <div class="toolbar tabbar-labels toolbar-bottom">
+                    <div class="toolbar-inner">
+                      <a href="#consumo" class="tab-link tab-link-active">
+                        <span class="material-icons">calculate</span>
+                        <span class="tabbar-label">Calculadora</span>
+                      </a>
+                      <a href="#tab-2" class="tab-link">
+                        <span class="material-icons">
+                          directions_car
+                        </span>
+                        <span class="tabbar-label">Viagem</span>
+                      </a>
+                      <a href="#tab-3" class="tab-link">
+                        <span class="material-icons">
+                          assignment
+                        </span>
+                        <span class="tabbar-label">Histórico</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tabs-swipeable-wrap">
+                    <div class="tabs">
+                      <div id="consumo" class="page-content tab tab-active">
+                        <div class="list inline-labels no-hairlines-md">
+                          <ul>
+                            <h3 class="title text-align-center">Informe o valor dos Combustível</h3>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Etanol:</div>
+                                <div class="item-input-wrap">
+                                  <input class="margin-left" id="etanol" type="number" placeholder="R$0.00">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Gasolina:</div>
+                                <div class="item-input-wrap">
+                                  <input class="margin-left" id="gasolina" type="number" placeholder="R$0.00">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="block">  
+                            <div>
+                              <h4>Abasteça hoje com: <span class="mensagem"></span></h4>
+                              <span class="porc small"></span>
+                            </div>
+                            <button class="col button button-large button-raised button-fill color-blue margin-top btn-calcular">CALCULAR</button>
+                          </div>
+                          <ul>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Dinheiro:</div>
+                                <div class="item-input-wrap">
+                                  <input class="margin-left" id="dinheiro" type="number" data-mask="0000" data-mask-reverse="true" placeholder="R$0000">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Litros:</div>
+                                <div class="item-input-wrap">
+                                  <input class="margin-left" id="litros" type="number" data-mask="00" placeholder="ML's">
+                                  <span class="input-clear-button"></span>
+                                  <small class="men-litros"></small>
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="block">
+                            <div class="media f7-p">
+                              <label class="litros-visible">Por volta de <span id="lb_litros"></span> litros de <span class="result"></span></label>
+                              <label class="dinheiro-visible">Valor à pagar R$<span id="lb_dinheiro"></span></label>
+                            </div>
+                            <button class="col button button-large button-raised button-fill color-blue margin-top btn-novo">NOVO CALCULO</button>
+                            <br>
+                              <div class="consumo">
+                                <span class="item-label">Média de consumo do veículo!</span>
+                                <div class="list no">
+                                    <ul>
+                                      <li class="item-content item-input ">
+                                        <div class="item-input">
+                                          Cidade: <input type="number" id="cidade" data-mask="00" placeholder="KM">
+                                        </div>
+                                        <div class="item-input">
+                                          Pista: <input type="number" id="pista" data-mask="00" placeholder="KM">
+                                        </div>
+                                      </li>
+                                    </ul>
+                                    <span class="m-cidade"></span> | <span class="m-pista"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <div id="tab-2" class="page-content tab">
+                        <h3 class="title text-align-center">Calcule o custo de seus viagens</h3>
+                        <div class="list inline-labels no-hairlines-md">
+                          <ul>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Consumo</div>
+                                <div class="item-input-wrap">
+                                  <input type="number" id="kml" data-mask="00" placeholder="KM/L">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Destino</div>
+                                <div class="item-input-wrap">
+                                  <input type="number" id="distancia" data-mask="0000" placeholder="KM a percorrer">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="item-content item-input">
+                              <div class="item-inner">
+                                <div class="item-title item-label">Valor</div>
+                                <div class="item-input-wrap">
+                                  <input type="number" id="valorCombus" data-mask="0.00" placeholder="Valor do Combustível 0,00">
+                                  <span class="input-clear-button"></span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <div class="block">
+                            <div class="row">
+                              <button class="col button button-large button-raised button-fill color-blue margin-top btn-viagem">CALCULAR</button>
+                              <button class="col button button-large button-raised button-fill color-blue margin-top btn-novo">NOVO CALCULO</button>
+                            </div>
+                            <br>
+                            <p class="totalLitros"><strong>Total de litros:</strong>&nbsp;<span class="resultLitros"></span></p>
+                            <p class="gastos"><strong>Total de gastos:</strong>&nbsp;<span class="resultGastos"></span></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="tab-3" class="page-content tab">
+                        <h3 class="title text-align-center">Trocas de óleo</h3>
+                        <div class="card data-table">
+                          <table>
+                            <thead>
+                            <tr>
+                              <th class="label-cell">Troca de óleo</th>
+                              <th class="label-cell">Próxima troca</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="resultOleo">
+
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <h3 class="title text-align-center">Abastecimentos</h3>
+                        <div class="card data-table">
+                          <table>
+                            <thead>
+                            <tr>
+                              <th class="label-cell">Dia</th>
+                              <th class="label-cell">Valor</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="resultCombus">
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="data-table-footer block">
+                            <div class="text-color-red margin-right">TOTAL DE GASTOS:</div>
+                            <strong class="text-color-black total-gastos">R$ 500,00</strong>
+                          </div>
+                        </div>
+                        <div class="fab fab-right-bottom" id="btn-historico">
+                          <a href="/historico/" data-transition="f7-cover"><i class="f7-icons">plus_circle</i></a>
+                        </div>
+                      </div>
                       </div>
                     </div>
-                     <!-- Adicionando conteudo a página -->
-                     <div class="page-content">
-                        <div class="block">  
-                          <hr>
-                          <div class="display-flex justify-content-space-between">
-                            <div class="font">Preço Etanol:</div>
-                            <div class="font1">
-                              <input class="margin-left" id="etanol" data-mask="0.000" type="number" placeholder="R$0.000">
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="display-flex justify-content-space-between">
-                            <div class="font">Preço Gasolina:</div>
-                            <div class="font1">
-                              <input class="margin-left" id="gasolina" data-mask="0.000"  type="number" placeholder="R$0.000">
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="font">
-                            <h4>Abasteça hoje com: <span class="mensagem"></span></h4>
-                            <span class="porc small"></span>
-                          </div>
-                          <button class="col button button-large button-raised button-fill color-blue margin-top btn-calcular">CALCULAR</button>
-                          <br><br>
-                          <hr>
-                          <div class="display-flex justify-content-space-between">
-                            <div class="font">Dinheiro:</div>
-                            <div class="font1">
-                              <input class="margin-left" id="dinheiro" type="number" data-mask="000.00" data-mask-reverse="true" placeholder="R$0.00">
-                              <span class="input-clear-button"></span>
-                              <small class="men-dinheiro"></small>
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="display-flex justify-content-space-between">
-                            <div class="font">Litros:</div>
-                            <div class="font1">
-                              <input class="margin-left" id="litros" type="number" placeholder="ML's">
-                              <span class="input-clear-button"></span>
-                              <small class="men-litros"></small>
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="media f7-p">
-                            <label class="litros-visible">Por volta de <span id="lb_litros"></span> litros de <span class="result"></span></label>
-                            <label class="dinheiro-visible">Valor à pagar R$<span id="lb_dinheiro"></span></label>
-                          </div>
-                          <div class="padding-top padding-bottom font">
-                            <button class="col button button-large button-raised button-fill color-blue margin-top btn-novo">NOVO CALCULO</button>
-                          </div>
-                          <div class="consumo">
-                            <span class="item-label">Média de consumo do veículo!</span>
-                            <div class="list no">
-                                <ul>
-                                  <li class="item-content item-input ">
-                                    <div class="item-input">
-                                      Cidade: <input type="number" id="cidade" placeholder="KM">
-                                    </div>
-                                    <div class="item-input">
-                                      Pista: <input type="number" id="pista" placeholder="KM">
-                                    </div>
-                                  </li>
-                                </ul>
-                                <span class="m-cidade"></span> | <span class="m-pista"></span>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
             </div>
         </div>
