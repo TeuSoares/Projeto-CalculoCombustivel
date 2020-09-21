@@ -133,8 +133,10 @@ $(document).ready(function(){
         split2 = dataP.split('-');
         novaData2 = split2[2]+"/"+split2[1]+"/"+split2[0];
 
-        dados+='<td class="label-cell">'+novaData+'</td>';
-        dados+='<td class="label-cell">'+novaData2+'</td>';
+        dados+='<tr>'; 
+          dados+='<td class="label-cell">'+novaData+'</td>';
+          dados+='<td class="label-cell">'+novaData2+'</td>';
+        dados+='</tr>';
       }
 
       $(".resultOleo").html(dados);
@@ -152,8 +154,10 @@ $(document).ready(function(){
         split = dataD.split('-');
         novaData = split[2]+"/"+split[1];
 
+        dados2+='<tr>'; 
         dados2+='<td class="label-cell">'+novaData+'</td>';
         dados2+='<td class="label-cell">R$ '+linha[i].valor+'</td>';
+        dados2+='</tr>';
 
         resultGastos = 0 + linha[i].valor;
       }
